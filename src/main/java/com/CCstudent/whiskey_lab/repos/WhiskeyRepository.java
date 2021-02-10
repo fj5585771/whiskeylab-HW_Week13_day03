@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface WhiskeyRepository extends JpaRepository<Whiskey, Long> {
-    List<Whiskey> findByAgeLesserThan(int age);
+    List<Whiskey> findByYearGreaterThan(int age);
+//    List<Whiskey> findByAge(int age);
 }

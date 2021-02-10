@@ -6,12 +6,14 @@ import com.CCstudent.whiskey_lab.repos.DistilleryRepository;
 import com.CCstudent.whiskey_lab.repos.WhiskeyRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@AutoConfigureTestDatabase
 @SpringBootTest
 class WhiskeyLabApplicationTests {
 
@@ -35,9 +37,9 @@ class WhiskeyLabApplicationTests {
 	}
 
 	@Test
-	public void canFindWhiskeyYoungerThan2000(){
-		List<Whiskey> whiskeyFound = whiskeyRepository.findByAgeLesserThan(2000);
-		assertEquals(3, whiskeyFound.size());
+	public void canFindWhiskeyOver2000(){
+		List<Whiskey> foundWhiskeys = whiskeyRepository.findByYearGreaterThan(20);
+		assertEquals(1, foundWhiskeys.size());
 	}
 
 }
